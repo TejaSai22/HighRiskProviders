@@ -31,3 +31,26 @@ This system should be used as a:
 
 ### Note
 This is an analytical tool that identifies statistical patterns and anomalies. Results require professional interpretation and context for meaningful use.
+
+## Setup and Usage
+
+- Create a virtual environment and install dependencies:
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+- Generate sample data and score providers:
+
+```bash
+python -m hrp.cli generate-sample --n 1000 --out outputs/sample_providers.csv
+python -m hrp.cli score --input outputs/sample_providers.csv --out outputs/provider_scores.csv
+python -m hrp.cli summarize outputs/provider_scores.csv --top-k 10
+```
+
+- Run tests:
+
+```bash
+pytest
+```
